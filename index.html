@@ -5,8 +5,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign-up form</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
+ <header>
+   <section class="hero">
+     <h1 class="logo">Seedbox</h1>
+   </section>
+ </header>
+ <main>
+   <section class="intro">
+    <p>Sign up now to receive our special Seedbox Newsletter and Goodie Package containing everything you need to grow your own garden inside your own apartment, balcony or terrace.</p>
+    <p>Sign up <span>now</span> to get started.</p>
+    <p>You <span>know</span> you want to.</p>
+   </section>
+   <section class="form">
+     <form id="signup" action="" method="">
+
+      <label for="firstName">FIRST NAME</label>
+      <input name="firstName" id="firstName" type="text" required>
+
+      <label for="lastName">LAST NAME</label>
+      <input name="lastName" id="lastName" type="text" required>
+      
+      <label for="email">EMAIL</label>
+      <input name="email" id="email" type="email" required>
+
+      <label for="phone">PHONE NUMBER</label>
+      <input name="phoneNumber" id="phone" type="tel" required>
+
+      <label for="password">PASSWORD</label>
+      <input name="password" id="password" type="password" required>
+      
+      <label for="confirmPassword">CONFIRM PASSWORD</label>
+      <input name="confirmPassword" id="confirmPassword" type="password" required>
+
+     </form>
+   </section>
+   <section class="form-submit">
+    <button type="submit" form="signup">Create Account</button>
+    <p>Already have an account? <a href="#">Log in</a></p>
+  </section>
+ </main>
+ <footer>
+
+ </footer>
 </body>
 </html>
