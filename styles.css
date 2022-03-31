@@ -3,37 +3,26 @@
 *::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 } 
 
-
+button {
+  display: block;
+}
 html {
+  height: 100%;
   font-size: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  min-height:100%;
+}
+
+.main-container {
   background-image: url(/images/elnaz-asadi-vegetation-medium.jpg);
   background-size: contain;
-}
-
-header {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-}
-
-.logo {
-  font-family: 'Righteous', cursive;
-  font-size: 3rem;
-  color: #486845;
-  text-shadow:1px 0 0 #E5E7EB,0 1px 0 #E5E7EB,-1px 0 0 #E5E7EB,0 -1px 0 #E5E7EB;
-  text-align: center;
-}
-
-main {
-  background-color: rgba(255, 255, 255, .85);
+  flex-direction: column;
 }
 
 .intro,
@@ -45,68 +34,139 @@ button,
   font-family: 'Roboto', sans-serif;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero>.logo {
+  font-family: 'Righteous', sans-serif;
+  font-size: 3rem;
+  color: #486845;
+  text-shadow:
+  1px 0 0 #E5E7EB,0 1px 0 #E5E7EB,-1px 0 0 #E5E7EB,0 -1px 0 #E5E7EB;
+  padding-block: 3rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  background-color: rgba(255, 255, 255, 0.5)
+}
+
+.intro,
+.submit {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .intro {
-  font-size: 1.2rem;
-  font-weight: 400;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
   padding: 1.5rem 1rem;
-  text-align: left;
-  line-height: 1.2rem;
+  line-height: 1.5rem;
+}
+
+.intro>p:nth-child(n+2) {
+  text-align: center;
+  margin-top: 0.8rem;
 }
 
 span {
   font-weight: 300;
   font-style: italic;
-}
-
-.intro>p:nth-child(n+2) {
   color:green;
-  margin-top: 0.8rem;
 }
 
 .form {
-  /* min-height: 50vh; */
   background-color: #F9FAFB;
-  padding: .5rem 1rem;
 }
 
-label,
-input {
-  display: block;
+.form>form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding-block: 2em;
+}
+
+form>.group {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: .3rem;
+} 
+
+.requirements {
+  /* padding: 0 30px 0 50px; */
+  font-size: 0.9rem;
+  color: #999;
+  max-height: 0;
+  transition: 0.28s;
+  overflow: hidden;
+  color: red;
+  font-style: italic;
 }
 
 label {
   font-weight: 300;
-  letter-spacing: 4px;
-  font-size: .7rem;
-  margin-top: 2rem;
+  letter-spacing: .3em;
+  font-size: .6rem;
+  /* padding-left: rem; */
 }
 
 input {
+  font-family: sans-serif;
+  /* height: 2rem; */
   font-weight: 400;
-  font-size: 20px;
-  margin-top: .2rem;
-  height: 1.8rem;
-  width: 100%;
+  font-size: 1rem;
   border-radius: 10px;
   border: 1px solid lightgray;
-  padding-left: 10px;
+  padding-inline: 1rem;
+  padding-block: .5rem;
 }
 
-input:last-child {
-  margin-bottom: 2rem;
+input:valid:not(:placeholder-shown){
+  border: 1px solid green;
+  background: url(images/Icons8_flat_checkmark.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 20px 8px;
+  padding-left: 45px;
 }
 
-.form-submit {
+input:invalid:not(:focus):not(:placeholder-shown) {
+  background-color: pink;
+  border: 1px solid red;
+}
+
+input:invalid:not(:focus):not(:placeholder-shown) ~ .requirements {
+  max-height: 50px;
+}
+
+.submit {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
-  padding: 1.5rem;
   gap: 1rem;
-  font-size: 1.2rem;
+}
+
+.submit>p {
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+.submit>p>a {
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 button {
+  margin: 0 auto;
   background-color: #486845;
   color: #fff;
   font-size: 1rem;
@@ -116,10 +176,157 @@ button {
   border-radius: 10px;
 }
 
-.form-submit>p {
-  font-weight: 300;
+
+
+@media screen and (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+    background-image: none;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  header {
+    background-image: url(/images/elnaz-asadi-vegetation-medium.jpg);
+    background-size: cover;
+    width: 35%;
+  }
+
+  main {
+    width: 65%;
+    min-height: 100vh;
+  }
+
+  .intro {
+    padding: 3rem 5rem 1rem 5rem;
+    height: 30%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    line-height: 1.8;
+  }
+
+  .intro>p:nth-child(n+2) {
+    text-align: left;
+  }
+
+  .form {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 2em;
+    padding-inline: 5em;
+  }
+  
+  .form>form {
+    /* background-color: rebeccapurple; */
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 4rem;
+  }
+  
+  form>.group {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    width: 40%;
+  } 
+
+
+
+  .submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 20%;
+    padding-inline: 5em;
+    padding-block: 1em;
+  }
+
+  button {
+    margin: 0;
+  }
 }
 
-a {
-  font-weight: 500;
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  .main-container {
+    height: 100vh;
+  }
+
+  header {
+    background-size: contain;
+  }
+
+  .hero {
+    text-align: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .hero>.logo {
+    color: #2a5f2a;
+    font-size: 3rem;
+  }
+
+  main {
+    justify-content: space-between;
+  }
+
+  .intro {
+    font-size: 1rem;
+    height: 25%;
+    padding: 1rem 1.5rem;
+    justify-content: center;
+  }
+
+  .form {
+    width: 100%;
+    height: 60%;
+    padding: 1rem 1.5rem;
+  }
+
+  .form>form {
+    padding: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+  }
+
+  .group {
+    width: 100% !important;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  input {
+    max-width: 100%;
+    font-size: 1.2rem;
+  }
+
+  .requirements {
+    font-size: 1.2rem;
+  }
+
+  .submit {
+    padding: 1.5rem;
+    height: 15%;
+    background-color: ;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+  }
+
 }
